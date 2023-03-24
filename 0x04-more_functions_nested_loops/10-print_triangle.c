@@ -1,21 +1,33 @@
 #include "main.h"
-#include <stdio.h>
+
 /**
- * print_number - prints an integer.
- * @n: The integer to print
- * Return: Nothing!
+ * print_triangle -  prints a triangle, followed by a new line.
+ * @size: The size of the squares triangle
+ * Return: empty
  */
-void print_number(int n)
+
+void print_triangle(int size)
 {
-	unsigned int i = n;
-	if (n < 0)
+
+	int i, j, k;
+
+	if (size <= 0)
 	{
-	n *= -1;
-	i = n;
-	_putchar('-');
+	_putchar('\n');
 	}
-	i /= 10;
-	if (i != 0)
-	print_number(i);
-	_putchar((unsigned int) n % 10 + '0');
+	else
+	{
+	for (i = 0; i < size; i++)
+	{
+	for (j = size - i; j > 1; j--)
+	{
+	_putchar(32);
+	}
+	for (k = 0; k <= i; k++)
+	{
+	_putchar(35);
+	}
+	_putchar('\n');
+	}
+	}
 }
