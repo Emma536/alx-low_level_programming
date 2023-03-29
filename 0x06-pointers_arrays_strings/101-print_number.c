@@ -2,7 +2,7 @@
 /**
  *print_number - prints an integer.
  *only using the putchar function.
- *noarrays and pointers.
+ *no arrays and pointers.
  *@n: integer to be printed.
  *
  *Return: void.
@@ -14,7 +14,7 @@ void print_number(int n)
 	num = n;
 	if (n < 0)
 	{
-		_putchar(45);
+		putchar(45);
 		num = -n;
 	}
 /* print number by recursion*/
@@ -22,5 +22,5 @@ void print_number(int n)
 	{
 		print_number(num / 10);
 	}
-	_putchar((num % 10) + '0');
+	putchar((num % 10) + '0');
 }
