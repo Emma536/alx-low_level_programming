@@ -1,12 +1,11 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 /**
- * print_tab - Prints an array of string
- * @tab: The array to print
+ * wrdcnt - counts the number of words in a string
+ * @s: string to count
  *
- * Return: nothing
+ * Return: int of number of words
  */
 int wrdcnt(char *s)
 {
