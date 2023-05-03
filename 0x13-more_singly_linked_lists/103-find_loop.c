@@ -1,41 +1,32 @@
 #include "lists.h"
 
 /**
-  * find_listint_loop - finds the loop in a linked list.
-  * @head: pointer to first element in list.
-  * Return: address of the node or NULL.
-  */
-
+ * find_listint_loop - finds the loop in a linked list.
+ * @head: pointer to the beginning of the list
+ *
+ * Return: address of the node where the loop starts or NULL if there's no loop
+ */
 listint_t *find_listint_loop(listint_t *head)
 {
-	listint_t *current, *next_node;
+	listint_t *tortoise, *hare;
 
-	if (head == NULL)
-		return (NULL);
-
-	current = head;
-	next_node = head;
-	while (current && next_node && next_node->next)
+	tortoise = hare = head;
+	while (tortoise && hare && hare->next)
 	{
-		current = current->next;
-		next_node = next_node->next->next;
-		if (current == next_node)
+		tortoise = tortoise->next;
+		hare = hare->next->next;
+		if (tortoise == hare)
 		{
-			return (next_node);
+			tortoise = head;
+			break;
 		}
 	}
-	if (current != next_node)
-	{
+	if (!tortoise || !hare || !hare->next)
 		return (NULL);
-	}
-	else
+	while (tortoise != hare)
 	{
-		current = head;
-		while (current != next_node)
-		{
-			current = current->next;
-			next_node = next_node->next;
-		}
-		return (next_node);
+		tortoise = tortoise->next;
+		hare = hare->next;
 	}
+	return (hare);
 }
